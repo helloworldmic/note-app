@@ -1,0 +1,56 @@
+h1 {
+  color: rgb(241, 244, 247);
+}
+h2 {
+  color: aliceblue;
+}
+
+body {
+  background-image: url("./notepad1.jpg");
+  background-size: cover;
+  /* how to make it not stretch? stretch and thus cropped now */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.note-section > div {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.note-section textarea {
+  width: 100%;
+  padding: 3px;
+}
+.note {
+  background: #0e8548;
+  padding: 3px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px #ced7d4;
+  display: flex;
+}
+.note .input {
+  flex: 1;
+  /* display: flex; */
+  /* justify-content: middle; */
+}
+
+.note .input textarea {
+  background: rgb(223, 222, 170);
+  border: solid 1px rgb(33, 196, 185);
+}
+
+.note .input:hover textarea {
+  border: solid 3px #301bb5;
+}
+
+.saving {
+  display: none;
+  font-size: 14px;
+}
+
+.remove {
+  float: right;
+  padding: 0 0.375rem;
+  background: #990000;
+  color: #fff;
+}

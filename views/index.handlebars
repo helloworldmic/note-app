@@ -1,0 +1,36 @@
+<script type="text/javascript">console.log('does it run?')</script>
+<h1>This is your notebook</h1>
+<h2> Welcome to your notebook {{user}}</h2>
+<div class="note-section row">
+  {{!include left & right }}
+
+  <div class="col-lg-6">
+    <div id="notes">
+      {{#each notes}}
+        {{! notes = an array of notes being read by fsreadFile }}
+        {{! <div class="col-sm-3 col-md-4"> }}
+        <div class="note">
+          <span class="input"><textarea
+              data-id="{{@index}}"
+            >{{this}}</textarea></span>
+
+          <button class="remove btn btn-xs" data-id="{{@index}}"><i
+              class="fa fa-trash"
+              aria-hidden="true"
+            ></i></button>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <form id="add" class="row">
+      <div class="col col-sm-9">
+        <textarea type="text" name="note"></textarea>
+      </div>
+      <div class="col col-sm-3">
+        <input type="submit" value="ADD" />
+      </div>
+    </form>
+  </div>
+</div>
