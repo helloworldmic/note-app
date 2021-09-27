@@ -1,4 +1,12 @@
-var notesTemplate = Handlebars.compile();
+var notesTemplate = Handlebars.compile(
+  `{{#each notes}}
+  <div class='note'>
+   <span class='input'> <textarea data-horse ='pony' data-id='{{@index}}'> {{this}}</textarea> </span>
+   <button class='remove btn btn-xs' data-id='{{@index}}> <i class ='fa fa-trash' aria-hidden='true'>
+   </button> </div>
+   {{/each}}
+   `
+);
 const reloadNotes = (notes) => {
   console.log("RELOADING");
   $("#notes").html(notesTemplate({ notes: notes }));
@@ -16,16 +24,14 @@ $(() => {
   $("#add").submit((e) => {
     e.preventDefault();
     console.log("keydown to add");
-    console.log("added a note");
-
     var val = $("textarea[name=note]").val();
-    console.log(val);
+    console.log(val); // 'add'
     if (val === "") {
       return;
     }
     $("textarea[name=note]").val("");
     axios
-      .post("/api/info", {
+      .post("/api/info/", {
         //former: /api/notes, when test via postmen, use /api/info
         note: val,
       })
@@ -46,10 +52,12 @@ $(() => {
     console.log($(event.currentTarget).data("id"));
 
     axios
-      .put("/api/info" + $(event.currentTarget).data("id"), {
+      .put("/api/info/" + `${$(event.currentTarget).data("id")}`, {
         note: $(event.currentTarget).val(),
       })
       .then((res) => {
+        console.log(res);
+        console.log("edit done");
         endSaving(event.currentTarget);
         reloadNotes(res.data);
       })

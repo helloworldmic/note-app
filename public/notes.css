@@ -19,11 +19,11 @@ body {
 
 .note-section textarea {
   width: 100%;
-  padding: 3px;
+  /* padding: 3px; */
 }
 .note {
   background: #0e8548;
-  padding: 3px;
+  padding: 2px;
   margin-bottom: 10px;
   box-shadow: 5px 5px #ced7d4;
   display: flex;
@@ -40,12 +40,12 @@ body {
 }
 
 .note .input:hover textarea {
-  border: solid 3px #301bb5;
+  border: solid 1px #301bb5;
 }
 
 .saving {
   display: none;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .remove {
